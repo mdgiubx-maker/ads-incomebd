@@ -1272,7 +1272,7 @@
         function watchAd() {
             if (isAdLoading) return;
             
-            if (typeof window.show_9472256 !== 'function') {
+            if (typeof window.show_9977307 !== 'function') {
                 document.getElementById('ad-status').innerHTML = '<i class="fas fa-exclamation-circle"></i> Ad system not ready. Please wait...';
                 return;
             }
@@ -1283,7 +1283,7 @@
             
             try {
                 // Show the ad
-                window.show_9472256().then(() => {
+                window.show_9977307().then(() => {
                     // Ad watched successfully
                     watchedAdsCount++;
                     earnedPoints += POINTS_PER_AD;
@@ -1517,3 +1517,4 @@
     </script>
 </body>
 </html>
+
