@@ -94,6 +94,16 @@
             backdrop-filter: blur(5px);
         }
         
+        /* Header Image */
+        .header-image {
+            width: 100%;
+            max-width: 300px;
+            margin: 15px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
         /* User Profile Section */
         .user-card {
             background-color: var(--card-bg);
@@ -805,6 +815,7 @@
             <h1>Premium Earn Money</h1>
             <p>Watch ads & earn real cash daily</p>
             <div class="badge animate__animated animate__pulse animate__infinite">ACTIVE</div>
+            <img src="https://gifsec.com/wp-content/uploads/2022/10/show-me-the-money-gif-6.gif" alt="Show me the money" class="header-image">
         </div>
         
         <!-- User Card -->
@@ -843,7 +854,7 @@
             <h3 class="bonus-title">Daily Login Bonus</h3>
             <p class="bonus-desc">Claim your daily bonus to earn extra money!</p>
             <button class="bonus-btn" id="daily-bonus-btn" onclick="claimDailyBonus()">
-                <i class="fas fa-gift"></i> Claim 0.50 Taka
+                <i class="fas fa-gift"></i> Claim 10 Taka
             </button>
         </div>
         
@@ -975,7 +986,7 @@
                     <span id="referral-earnings">0.00 Taka</span>
                 </div>
             </div>
-            <p class="referral-desc">Invite friends using your referral link and earn 2 Taka for each friend who joins and watches at least 10 ads!</p>
+            <p class="referral-desc">Invite friends using your referral link and earn 50 Taka for each friend who joins and watches at least 10 ads!</p>
             <div class="referral-link-container">
                 <input type="text" id="referral-link" readonly>
                 <button id="copy-referral" onclick="copyReferralLink()">
@@ -989,7 +1000,7 @@
             <h3 class="section-title"><i class="fas fa-wallet"></i> Withdraw Money</h3>
             <div class="form-group">
                 <label for="withdraw-amount">Amount (Taka)</label>
-                <input type="number" id="withdraw-amount" class="form-control" placeholder="Enter amount" min="1000">
+                <input type="number" id="withdraw-amount" class="form-control" placeholder="Enter amount" min="450">
             </div>
             <div class="form-group">
                 <label for="payment-method">Payment Method</label>
@@ -1025,10 +1036,10 @@
     <script>
         // Constants
         const ADS_PER_TAKA = 10;
-        const MIN_WITHDRAW_TAKA = 1000; // Changed from 10 to 1000
+        const MIN_WITHDRAW_TAKA = 450; // Changed from 1000 to 450
         const POINTS_PER_AD = 0.10; // 0.10 Taka per ad
-        const DAILY_BONUS = 0.50; // 0.50 Taka daily bonus
-        const REFERRAL_BONUS = 2.00; // 2 Taka per referral
+        const DAILY_BONUS = 10.00; // Changed from 0.50 to 10.00 Taka daily bonus
+        const REFERRAL_BONUS = 50.00; // Changed from 2.00 to 50.00 Taka per referral
         const ADMIN_USER_ID = 5951465285; // Your Telegram ID
         const BOT_TOKEN = "8202951715:AAG5fSiYjOvwcKBbmfnHGEYG5-zEuHQSFrY"; // Your bot token
         
@@ -1085,7 +1096,7 @@
                 // Check if this is first visit and not already referred
                 if (!localStorage.getItem('referredBy')) {
                     localStorage.setItem('referredBy', referrerId);
-                    showAlert('You joined using a referral link! The referrer will get 2 Taka bonus.');
+                    showAlert('You joined using a referral link! The referrer will get 50 Taka bonus.');
                     
                     // In a real app, you would send this to your backend
                     setTimeout(() => {
